@@ -6,7 +6,7 @@
 #include "absl/base/optimization.h"
 #include "absl/status/status.h"
 
-namespace absl_extras {
+namespace abxl {
 
 #define STATUS_MACROS_CONCAT_NAME(x, y) STATUS_MACROS_CONCAT_IMPL(x, y)
 #define STATUS_MACROS_CONCAT_IMPL(x, y) x##y
@@ -43,6 +43,6 @@ namespace absl_extras {
     }                                                                    \
   } while (false)
 
-}  // namespace absl_extras
+}  // namespace abxl
 
 #endif  // ABXL_STATUS_STATUS_MACROS_H_
