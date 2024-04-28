@@ -1,0 +1,29 @@
+# Use the Google style in this project.
+BasedOnStyle: Google
+
+# From: https://github.com/carbon-language/carbon-lang/blob/trunk/.clang-format
+
+AllowShortBlocksOnASingleLine: 'false'
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: 'false'
+DerivePointerAlignment: 'false'
+ExperimentalAutoDetectBinPacking: 'false'
+FixNamespaceComments: 'true'
+PointerAlignment: Left
+# We abuse control macros for formatting other kinds of macros.
+SpaceBeforeParens: ControlStatementsExceptControlMacros
+#IfMacros:
+#  ['CARBON_DEFINE_RAW_ENUM_CLASS', 'CARBON_DEFINE_RAW_ENUM_CLASS_NO_NAMES']
+#StatementMacros: ['ABSTRACT']
+
+# From: https://github.com/googleapis/google-cloud-cpp/blob/main/.clang-format
+
+# Format raw string literals with a `pb` or `proto` tag as proto.
+RawStringFormats:
+- Language: TextProto
+  Delimiters:
+  - 'pb'
+  - 'proto'
+  BasedOnStyle: Google
+
+CommentPragmas: '(@copydoc|@copybrief|@see|@overload|@snippet)'
