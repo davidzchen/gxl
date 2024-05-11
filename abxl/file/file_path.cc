@@ -14,9 +14,12 @@
 
 #include "abxl/file/file_path.h"
 
-#include "absl/strings/str_cat.h"
+#include <string>
 
-namespace file {
+#include "absl/strings/str_cat.h"
+#include "absl/strings/string_view.h"
+
+namespace abxl {
 
 // 40% of the time in JoinPath() is from calls with 2 arguments, so we
 // specialize that case.
@@ -121,4 +124,4 @@ absl::string_view Extension(absl::string_view path) {
   return internal::SplitBasename(path).second;
 }
 
-}  // namespace file
+}  // namespace abxl

@@ -21,7 +21,7 @@
 #include "absl/strings/string_view.h"
 
 // A set of file pathname manipulation routines.
-namespace file {
+namespace abxl {
 namespace internal {
 
 // Not part of the public API.
@@ -90,6 +90,6 @@ absl::string_view Basename(absl::string_view path);
 // there is no "." in the basename, the result is empty.
 absl::string_view Extension(absl::string_view path);
 
-}  // namespace file
+}  // namespace abxl
 
 #endif  // MEDIAPIPE_DEPS_FILE_PATH_H_
