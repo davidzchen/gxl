@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "abxl/file/file_helpers.h"
+#include "abxl/file/filesystem.h"
 
 #include "absl/strings/str_cat.h"
 
@@ -33,7 +33,7 @@
 #include <string>
 
 #include "absl/status/status.h"
-#include "abxl/file/file_path.h"
+#include "abxl/file/path.h"
 #include "abxl/status/status_builder.h"
 #include "abxl/status/status_macros.h"
 

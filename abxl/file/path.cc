@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "abxl/file/file_path.h"
+#include "abxl/file/path.h"
 
 #include <string>
 

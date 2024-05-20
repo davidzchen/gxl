@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ABXL_FILE_HELPERS_H_
-#define ABXL_FILE_HELPERS_H_
+#ifndef ABXL_FILESYSTEM_H_
+#define ABXL_FILESYSTEM_H_
 
 #include "absl/status/status.h"
 #include "absl/strings/match.h"
@@ -45,4 +45,4 @@ absl::Status RecursivelyCreateDir(absl::string_view path);
 
 }  // namespace abxl
 
-#endif  // ABXL_FILE_HELPERS_H_
+#endif  // ABXL_FILESYSTEM_H_

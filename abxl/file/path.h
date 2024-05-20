@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ABXL_FILE_PATH_H_
-#define ABXL_FILE_PATH_H_
+#ifndef ABXL_PATH_H_
+#define ABXL_PATH_H_
 
 #include <initializer_list>
 #include <string>
@@ -92,4 +92,4 @@ absl::string_view Extension(absl::string_view path);
 
 }  // namespace abxl
 
-#endif  // ABXL_FILE_PATH_H_
+#endif  // ABXL_PATH_H_
