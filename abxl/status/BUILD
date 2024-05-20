@@ -32,3 +32,26 @@ cc_test(
         "@com_google_googletest//:gtest_main",
     ],
 )
+
+cc_library(
+    name = "status_builder",
+    srcs = ["status_builder.cc"],
+    hdrs = ["status_builder.h"],
+    deps = [
+        "//abxl/base:source_location",
+        "@com_google_absl//absl/base:core_headers",
+        "@com_google_absl//absl/memory",
+        "@com_google_absl//absl/status",
+        "@com_google_absl//absl/strings",
+    ],
+)
+
+cc_test(
+    name = "status_builder_test",
+    size = "small",
+    srcs = ["status_builder_test.cc"],
+    deps = [
+        ":status_builder",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
