@@ -17,9 +17,9 @@ cc_library(
     deps = [
         "//abxl/base:types",
         "//third_party/utf",
-        "@com_google_absl//absl/base",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/strings:str_format",
+        "@abseil-cpp//absl/base",
+        "@abseil-cpp//absl/strings",
+        "@abseil-cpp//absl/strings:str_format",
     ],
 )
 
@@ -30,7 +30,7 @@ cc_test(
     ],
     deps = [
         ":unicodetext",
-        "@com_google_googletest//:gtest_main",
+        "@googletest//:gtest_main",
     ],
 )
 

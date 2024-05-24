@@ -1,6 +1,25 @@
-###############################################################################
-# Bazel now uses Bzlmod by default to manage external dependencies.
-# Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel.
-#
-# For more details, please check https://github.com/bazelbuild/bazel/issues/18958
-###############################################################################
+module(name = "oepd")
+
+bazel_dep(name = "bazel_skylib", version = "1.5.0")
+bazel_dep(name = "rules_cc", version = "0.0.9")
+bazel_dep(name = "abseil-cpp", version = "20240116.1")
+bazel_dep(name = "rules_proto", version = "6.0.0-rc2")
+bazel_dep(name = "googletest", version = "1.14.0.bcr.1")
+bazel_dep(name = "google_benchmark", version = "1.8.3")
+bazel_dep(name = "protobuf", version = "26.0")
+
+bazel_dep(name = "bazel_clang_tidy", dev_dependency = True)
+git_override(
+    module_name = "bazel_clang_tidy",
+    # HEAD as of 2024-03-12.
+    commit = "bff5c59c843221b05ef0e37cef089ecc9d24e7da",
+    remote = "https://github.com/erenon/bazel_clang_tidy.git",
+)
+
+bazel_dep(name = "hedron_compile_commands", dev_dependency = True)
+git_override(
+    module_name = "hedron_compile_commands",
+    # HEAD as of 2024-03-12.
+    commit = "204aa593e002cbd177d30f11f54cff3559110bb9",
+    remote = "https://github.com/hedronvision/bazel-compile-commands-extractor.git",
+)
