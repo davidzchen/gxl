@@ -2,12 +2,15 @@ package(default_visibility = ["//visibility:public"])
 
 cc_library(
     name = "protobuf_matchers",
-    testonly = True,
+    testonly = 1,
+    srcs = ["protobuf_matchers.cc"],
     hdrs = ["protobuf_matchers.h"],
     deps = [
-        "@abseil-cpp//absl/memory",
+        "@abseil-cpp//absl/log:absl_check",
+        "@abseil-cpp//absl/log:absl_log",
         "@abseil-cpp//absl/strings",
         "@googletest//:gtest",
         "@protobuf",
+        "@re2",
     ],
 )
