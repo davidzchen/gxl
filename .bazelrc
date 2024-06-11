@@ -8,10 +8,11 @@ build --cxxopt="-std=c++20"
 test --cxxopt="-std=c++20"
 run --cxxopt="-std=c++20"
 
-# Enable layering check
-build --features=layering_check
-test --features=layering_check
-run --features=layering_check
+# Disable layering check for now until the following bug is fixed:
+# https://github.com/protocolbuffers/protobuf/issues/17094
+#build --features=layering_check
+#test --features=layering_check
+#run --features=layering_check
 
 # Support running clang-tidy with:
 #   bazel build --config=clang-tidy -k //...
