@@ -4,7 +4,8 @@ cc_library(
     name = "status_macros",
     hdrs = ["status_macros.h"],
     deps = [
-        "@abseil-cpp//absl/base:core_headers",
+        ":status_builder",
+        "//abxl/base:source_location",
         "@abseil-cpp//absl/status",
     ],
 )
