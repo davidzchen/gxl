@@ -34,6 +34,7 @@ cc_library(
         "@abseil-cpp//absl/status:statusor",
         "@abseil-cpp//absl/strings",
         "@protobuf",
+        "@protobuf//src/google/protobuf/io:tokenizer",
     ],
 )
 
