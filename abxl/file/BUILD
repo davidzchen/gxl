@@ -36,3 +36,12 @@ cc_library(
         "@protobuf",
     ],
 )
+
+cc_library(
+    name = "filelineiter",
+    hdrs = ["filelineiter.h"],
+    deps = [
+        ":file",
+        "@abseil-cpp//absl/log",
+    ],
+)
