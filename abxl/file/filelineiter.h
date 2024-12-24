@@ -52,10 +52,17 @@ class FileLineIterator {
         options_(options) {
     ReadNextLine();
   }
+
   const std::string& operator*() const { return line_; }
+
   bool operator!=(const FileLineIterator& other) const {
     return file_ != other.file_;
   }
+
+  bool operator==(const FileLineIterator& other) const {
+    return file_ == other.file_;
+  }
+
   void operator++() { ReadNextLine(); }
 
  private:
