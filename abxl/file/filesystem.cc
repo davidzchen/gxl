@@ -163,46 +163,6 @@ class DirectoryListing {
 
 }  // namespace
 
-absl::Status GetContents(absl::string_view file_name, std::string* output,
-                         bool read_as_binary) {
-  FILE* fp = fopen(file_name.data(), read_as_binary ? "rb" : "r");
-  if (fp == NULL) {
-    return abxl::InvalidArgumentErrorBuilder(ABXL_LOC)
-           << "Can't find file: " << file_name;
-  }
-
-  output->clear();
-  while (!feof(fp)) {
-    char buf[4096];
-    size_t ret = fread(buf, 1, 4096, fp);
-    if (ret == 0 && ferror(fp)) {
-      return abxl::InternalErrorBuilder(ABXL_LOC)
-             << "Error while reading file: " << file_name;
-    }
-    output->append(std::string(buf, ret));
-  }
-  fclose(fp);
-  return absl::OkStatus();
-}
-
-absl::Status SetContents(absl::string_view file_name,
-                         absl::string_view content) {
-  FILE* fp = fopen(file_name.data(), "wb");
-  if (fp == NULL) {
-    return abxl::InvalidArgumentErrorBuilder(ABXL_LOC)
-           << "Can't open file: " << file_name;
-  }
-
-  fwrite(content.data(), sizeof(char), content.size(), fp);
-  size_t write_error = ferror(fp);
-  if (fclose(fp) != 0 || write_error) {
-    return abxl::InternalErrorBuilder(ABXL_LOC)
-           << "Error while writing file: " << file_name
-           << ". Error message: " << strerror(write_error);
-  }
-  return absl::OkStatus();
-}
-
 absl::Status AppendStringToFile(absl::string_view file_name,
                                 absl::string_view contents) {
   FILE* fp = fopen(file_name.data(), "ab");
@@ -253,22 +213,6 @@ absl::Status MatchFileTypeInDirectory(const std::string& directory,
   }
 
   return absl::OkStatus();
-}
-
-absl::Status Exists(absl::string_view file_name) {
-  struct stat buffer;
-  int status;
-  status = stat(std::string(file_name).c_str(), &buffer);
-  if (status == 0) {
-    return absl::OkStatus();
-  }
-  switch (errno) {
-    case EACCES:
-      return absl::PermissionDeniedError("Insufficient permissions.");
-    default:
-      return absl::NotFoundError(
-          absl::StrCat("The path does not exist: ", file_name));
-  }
 }
 
 absl::Status IsDirectory(absl::string_view file_name) {

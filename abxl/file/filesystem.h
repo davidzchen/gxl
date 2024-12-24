@@ -20,12 +20,6 @@
 
 namespace abxl {
 
-absl::Status GetContents(absl::string_view file_name, std::string* output,
-                         bool read_as_binary = true);
-
-absl::Status SetContents(absl::string_view file_name,
-                         absl::string_view content);
-
 absl::Status AppendStringToFile(absl::string_view file_name,
                                 absl::string_view contents);
 
@@ -36,8 +30,6 @@ absl::Status MatchInTopSubdirectories(const std::string& parent_directory,
 absl::Status MatchFileTypeInDirectory(const std::string& directory,
                                       const std::string& file_suffix,
                                       std::vector<std::string>* results);
-
-absl::Status Exists(absl::string_view file_name);
 
 absl::Status IsDirectory(absl::string_view file_name);
 
