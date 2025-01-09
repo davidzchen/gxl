@@ -7,4 +7,4 @@ Imported from https://github.com/google/mediapipe/blob/a44a83b8c64f8bc654397184b
 Modifications:
 
 * Namespace changes
-* Rename `MEDIAPIPE_LOC` to `ABXL_LOC`
+* Rename `MEDIAPIPE_LOC` to `GXL_LOC`
