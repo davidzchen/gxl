@@ -1,4 +1,4 @@
-module(name = "oepd")
+module(name = "gxl")
 
 bazel_dep(name = "bazel_skylib", version = "1.7.0")
 bazel_dep(name = "rules_cc", version = "0.1.0")
