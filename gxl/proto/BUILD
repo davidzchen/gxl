@@ -12,6 +12,7 @@ cc_library(
         "@googletest//:gtest",
         "@protobuf",
         "@protobuf//:differencer",
+        "@protobuf//src/google/protobuf/io",
         "@protobuf//src/google/protobuf/io:tokenizer",
         "@re2",
     ],

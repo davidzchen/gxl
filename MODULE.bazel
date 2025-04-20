@@ -1,7 +1,7 @@
 module(name = "gxl")
 
 bazel_dep(name = "bazel_skylib", version = "1.7.0")
-bazel_dep(name = "rules_cc", version = "0.1.0")
+bazel_dep(name = "rules_cc", version = "0.1.1")
 bazel_dep(name = "abseil-cpp", version = "20240722.0.bcr.2")
 bazel_dep(name = "rules_proto", version = "7.1.0")
 bazel_dep(name = "googletest", version = "1.15.2")
