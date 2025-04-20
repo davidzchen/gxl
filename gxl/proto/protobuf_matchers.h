@@ -206,7 +206,7 @@
 #include "google/protobuf/util/field_comparator.h"
 #include "google/protobuf/util/message_differencer.h"
 
-namespace protobuf_matchers {
+namespace gxl_testing {
 namespace internal {
 
 // Utilities.
@@ -1125,6 +1125,6 @@ WhenDeserializedAs(const InnerMatcher& inner_matcher) {
       ::testing::SafeMatcherCast<const Proto&>(inner_matcher)));
 }
 
-}  // namespace protobuf_matchers
+}  // namespace gxl_testing
 
 #endif  // GXL_PROTO_PROTOBUF_MATCHERS_H_

@@ -32,7 +32,7 @@
 #include "gtest/gtest.h"
 #include "re2/re2.h"
 
-namespace protobuf_matchers {
+namespace gxl_testing {
 namespace internal {
 
 using RegExpStringPiece = absl::string_view;
@@ -177,6 +177,7 @@ class IgnoreFieldPathCriteria
 };
 
 namespace {
+
 bool Consume(RegExpStringPiece* s, RegExpStringPiece x) {
   // We use the implementation of ABSL's StartsWith here until we can pick up a
   // dependency on Abseil.
@@ -187,6 +188,7 @@ bool Consume(RegExpStringPiece* s, RegExpStringPiece x) {
   }
   return false;
 }
+
 }  // namespace
 
 // Parses a field path and returns individual components.
@@ -415,4 +417,4 @@ bool ProtoMatcherBase::MatchAndExplain(
 }
 
 }  // namespace internal
-}  // namespace protobuf_matchers
+}  // namespace gxl_testing

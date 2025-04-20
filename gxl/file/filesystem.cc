@@ -243,7 +243,7 @@ int mkdir(std::string path) { return _mkdir(path.c_str()); }
 #endif
 
 absl::Status RecursivelyCreateDir(absl::string_view path) {
-  if (path.empty() || file::Exists(path, file::Defaults()).ok()) {
+  if (path.empty() || Exists(path, file::Defaults()).ok()) {
     return absl::OkStatus();
   }
   auto split_path = SplitPath(path);
