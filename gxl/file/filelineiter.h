@@ -135,7 +135,7 @@ class FileLines {
   // Usage:
   //
   //   File* file = nullptr;
-  //   RETURN_IF_ERROR(file::Open(filename, "r", &file, file::Defaults()));
+  //   RETURN_IF_ERROR(gxl::Open(filename, "r", &file, gxl::file::Defaults()));
   //   for (const absl::string_view line : FileLines(filename, file)) {
   //     ...
   //   }
@@ -150,7 +150,7 @@ class FileLines {
 
   // Initializes the FileLines ignoring errors.
   //
-  // Please prefer the other constructor combined with file::Open() in new code
+  // Please prefer the other constructor combined with gxl::Open() in new code
   // so that missing files are properly detected. This version would only print
   // a warning and act as if the file was empty.
   explicit FileLines(absl::string_view filename,
@@ -159,7 +159,7 @@ class FileLines {
             filename,
             [&]() {
               File* file = nullptr;
-              if (!file::Open(filename, "r", &file, file::Defaults()).ok()) {
+              if (!Open(filename, "r", &file, file::Defaults()).ok()) {
                 LOG(WARNING) << "Could not open: " << filename;
               }
               return file;
