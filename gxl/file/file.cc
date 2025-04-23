@@ -171,11 +171,9 @@ bool File::Open() const { return f_ != nullptr; }
 
 void File::Init() {}
 
-namespace file {
-
 absl::Status Open(absl::string_view filename, absl::string_view mode, File** f,
                   file::Options options) {
-  if (options == Defaults()) {
+  if (options == file::Defaults()) {
     *f = File::Open(filename, mode);
     if (*f != nullptr) {
       return absl::OkStatus();
@@ -188,7 +186,7 @@ absl::Status Open(absl::string_view filename, absl::string_view mode, File** f,
 File* OpenOrDie(absl::string_view filename, absl::string_view mode,
                 file::Options options) {
   File* f;
-  CHECK_EQ(options, Defaults());
+  CHECK_EQ(options, file::Defaults());
   f = File::Open(filename, mode);
   CHECK(f != nullptr) << absl::StrCat("Could not open '", filename, "'");
   return f;
@@ -238,7 +236,7 @@ absl::StatusOr<std::string> GetContents(absl::string_view path,
 
 absl::Status WriteString(File* file, absl::string_view contents,
                          file::Options options) {
-  if (options == Defaults() && file != nullptr &&
+  if (options == file::Defaults() && file != nullptr &&
       file->Write(contents.data(), contents.size()) == contents.size()) {
     return absl::OkStatus();
   }
@@ -405,5 +403,4 @@ absl::Status Exists(absl::string_view path, file::Options options) {
                       absl::StrCat("File '", path, "' does not exist."));
 }
 
-}  // namespace file
 }  // namespace gxl
