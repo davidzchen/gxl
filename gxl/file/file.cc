@@ -336,7 +336,7 @@ void WriteProtoToFileOrDie(const google::protobuf::Message& proto,
 absl::Status GetTextProto(absl::string_view filename,
                           google::protobuf::Message* proto,
                           file::Options options) {
-  if (options == Defaults()) {
+  if (options == file::Defaults()) {
     if (ReadFileToProto(filename, proto))
       return absl::OkStatus();
   }
@@ -348,7 +348,7 @@ absl::Status GetTextProto(absl::string_view filename,
 absl::Status SetTextProto(absl::string_view filename,
                           const google::protobuf::Message& proto,
                           file::Options options) {
-  if (options == Defaults()) {
+  if (options == file::Defaults()) {
     if (WriteProtoToASCIIFile(proto, filename))
       return absl::OkStatus();
   }
@@ -361,7 +361,7 @@ absl::Status GetBinaryProto(const absl::string_view filename,
                             google::protobuf::Message* proto,
                             file::Options options) {
   std::string str;
-  if (options == Defaults() && ReadFileToString(filename, &str) &&
+  if (options == file::Defaults() && ReadFileToString(filename, &str) &&
       proto->ParseFromString(str)) {
     return absl::OkStatus();
   }
@@ -373,7 +373,7 @@ absl::Status GetBinaryProto(const absl::string_view filename,
 absl::Status SetBinaryProto(absl::string_view filename,
                             const google::protobuf::Message& proto,
                             file::Options options) {
-  if (options == Defaults()) {
+  if (options == file::Defaults()) {
     if (WriteProtoToFile(proto, filename))
       return absl::OkStatus();
   }
@@ -383,7 +383,7 @@ absl::Status SetBinaryProto(absl::string_view filename,
 }
 
 absl::Status Delete(absl::string_view path, file::Options options) {
-  if (options == Defaults()) {
+  if (options == file::Defaults()) {
     std::string null_terminated_path = std::string(path);
     if (remove(null_terminated_path.c_str()) == 0)
       return absl::OkStatus();
@@ -393,7 +393,7 @@ absl::Status Delete(absl::string_view path, file::Options options) {
 }
 
 absl::Status Exists(absl::string_view path, file::Options options) {
-  if (options == Defaults()) {
+  if (options == file::Defaults()) {
     std::string null_terminated_path = std::string(path);
     if (access(null_terminated_path.c_str(), F_OK) == 0) {
       return absl::OkStatus();
