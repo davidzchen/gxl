@@ -16,7 +16,7 @@
 
 #include <string_view>
 
-#include "absl/log/absl_check.h"
+#include "absl/log/check.h"
 #include "google/protobuf/message.h"
 #include "google/protobuf/text_format.h"
 
