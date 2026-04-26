@@ -1,3 +1,5 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library", "cc_test")
+
 licenses(["notice"])
 
 # Requires --copt -funsigned-char when compiling (unsigned chars).
